@@ -1,0 +1,30 @@
+﻿@inherits MainLayoutBase
+
+<div>
+    <MudThemeProvider Theme="@Theme" />
+    <MudDialogProvider />
+    <MudSnackbarProvider />
+
+    <MudLayout>
+        <MudAppBar Class="app-bar" Elevation="0">
+            <MudLink Href="/">
+                <MudImage Class="main-logo" Src="/img/aidn-logo.png" /> 
+            </MudLink>
+            <MudSpacer />
+            <MudItem Class="d-flex justify-right mr-2 login-container">
+                <LoginDisplay />
+            </MudItem>
+        </MudAppBar>
+
+        <NavMenu />
+
+        <MudMainContent>
+            <MudContainer MaxWidth="MaxWidth.Large">
+                <article class="content px-4">
+                    @Body
+                </article>
+            </MudContainer>
+        </MudMainContent>
+    </MudLayout>
+
+</div>

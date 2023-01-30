@@ -1,0 +1,52 @@
+﻿@page "/measurements"
+
+@inherits NewsScoreBase
+
+@using System.ComponentModel.DataAnnotations
+
+<MudGrid Class="mb-2">
+    <MudItem xs="12">
+        <h1> News Score</h1>
+    </MudItem>
+</MudGrid>
+
+<EditForm Model="@model" OnValidSubmit="OnValidSubmit">
+    <DataAnnotationsValidator />
+    <MudGrid>
+        <MudItem xs="12" sm="7">
+            <MudCard>
+                <MudCardContent>
+                    <MudNumericField Label="Temperature"
+                                     @bind-Value="model.TempValue" For="@(() => model.TempValue)" />
+                    <MudNumericField Label="RR" Class="mt-3"
+                                     @bind-Value="model.RrValue" For="@(() => model.RrValue)" />
+                    <MudNumericField Label="HR" Class="mt-3"
+                                     @bind-Value="model.HrValue" For="@(() => model.HrValue)" />
+                </MudCardContent>
+                <MudCardActions>
+                    <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto">Calculate</MudButton>
+                </MudCardActions>
+            </MudCard>
+        </MudItem>
+        <MudItem xs="12" sm="5">
+            <MudPaper Class="pa-4 mud-height-full">
+                <MudText Typo="Typo.subtitle2">Summary</MudText>
+                @if (success)
+                {
+                    <MudText Color="Color.Success">Success</MudText>
+                }
+                else
+                {
+                    <MudText Color="@Color.Error">
+                        <ValidationSummary />
+                    </MudText>
+                }
+            </MudPaper>
+        </MudItem>
+        <MudItem xs="12">
+            <MudText Typo="Typo.body2" Align="Align.Center">
+                Fill out the form correctly to see the NEWS score.
+            </MudText>
+        </MudItem>
+    </MudGrid>
+</EditForm>

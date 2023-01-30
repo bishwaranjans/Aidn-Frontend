@@ -1,0 +1,12 @@
+::deep .main-logo {
+    margin-left: -10px !important;
+    width: 70px;
+    height: 65px;
+    margin-top: 5px;
+}
+
+::deep .login-container * {
+    --mud-palette-action-default: white;
+    --mud-palette-surface: var(--mud-palette-appbar-background);
+    color: white !important;
+}

@@ -1,0 +1,125 @@
+﻿* {
+    --mud-palette-text-primary: #253747;
+}
+
+
+/* Fit the search parameter input elements above the table */
+.mud-table-toolbar {
+    height: fit-content !important;
+}
+
+.vertical-align-center {
+    vertical-align: middle;
+}
+
+@media (min-width: 1280px) {
+    .mud-container-maxwidth-lg {
+        max-width: 90%;
+    }
+}
+
+.primary-section {
+    background-color: #F6F6F3;
+}
+
+    .primary-section .vertical-sub-section {
+        width: 50%;
+        float: left;
+        margin-top: 30px;
+    }
+
+.secondary-section {
+    margin-top: 20px;
+}
+
+.mud-button-filled-primary {
+    background-color: #D9F4F9 !important;
+    color: #253747 !important;
+}
+
+    .mud-button-filled-primary:hover {
+        background-color: #00B5D8 !important;
+        color: white !important;
+    }
+
+    .mud-button-filled-primary:focus {
+        background-color: #66D2E7 !important;
+    }
+
+.cancel {
+    border: 0px !important;
+    background: none !important;
+    box-shadow: none !important;
+    color: #00B5D8 !important;
+}
+
+    .cancel:disabled {
+        border: 0px !important;
+        background: none !important;
+        box-shadow: none !important;
+        color: #EEEEE8 !important;
+    }
+
+.mud-dialog .mud-dialog-actions {
+    padding-right: 24px;
+}
+
+.custom-mud-icon {
+    z-index: 1;
+}
+
+
+.dashed-divider {
+    border-color: #B1B1B1;
+}
+
+.mud-tab-active {
+    color: var(--mud-palette-secondary) !important;
+}
+
+.mud-alert-normal, .mud-alert-filled-normal {
+    background-color: var(--mud-palette-tertiary) !important;
+}
+
+.mud-link {
+    color: #009BB9 !important;
+}
+
+    .mud-link:hover {
+        color: var(--mud-palette-secondary) !important;
+    }
+
+.break-word {
+    word-wrap: break-word;
+}
+
+.break-word-table {
+    word-break: break-all;
+}
+/* mud popover content placed in top level div, so cannot be styled from inner css due to css isolation */
+.limit-tooltip-length {
+    max-width: 600px;
+}
+
+.tooltip-right-margin {
+    margin-right: 32px;
+    margin-left: -168px;
+}
+
+.bg-lighten5 {
+    background: #FAFAFA
+}
+
+.no-text-decoration {
+    text-decoration: none !important;
+    color: var(--mud-palette-text-primary) !important;
+}
+
+.disabled {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.clickable {
+    cursor: pointer;
+}

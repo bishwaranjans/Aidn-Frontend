@@ -1,0 +1,25 @@
+﻿@using AidnHealth.WebApp.Helpers;
+@inherits NavMenuBase
+
+<MudDrawer Class="app-drawer overflow-hidden" @bind-Open="DrawerOpen" ClipMode="DrawerClipMode.Always" Elevation="0" Variant="DrawerVariant.Mini">
+    <MudNavMenu Class="d-flex flex-column flex-grow-1" Color="@Color.Dark">
+        <MudNavLink Icon="@(DrawerOpen ? Icons.Material.Filled.ChevronLeft : CustomIcons.Backburger)" IconColor="@Color.Dark" OnClick="@(DrawerToggle)" />
+        @if (DrawerOpen)
+        {
+            <MudItem Class="flex-grow-1 upper-half sidebar-svg">
+
+                <MudNavLink Href="" Icon="@Icons.Material.Filled.Home" Match="NavLinkMatch.All">Home</MudNavLink>
+
+                <MudDivider Class="border-0 border-t border-dashed dashed-divider" DividerType="DividerType.Middle" />
+                <AuthorizeView>
+                    <Authorized>
+                        <MudNavLink Href="/measurements" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.HealthAndSafety">NEWS score</MudNavLink>
+                        <MudDivider Class="border-0 border-t border-dashed dashed-divider" DividerType="DividerType.Middle" />
+                        <MudNavLink Href="/fetchdata" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.List">Weathers</MudNavLink>
+                        <MudDivider Class="border-0 border-t border-dashed dashed-divider" DividerType="DividerType.Middle" />
+                    </Authorized>
+                </AuthorizeView>
+            </MudItem>
+        }
+    </MudNavMenu>
+</MudDrawer>
