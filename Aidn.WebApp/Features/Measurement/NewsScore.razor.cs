@@ -1,8 +1,8 @@
-﻿using AidnHealth.Shared;
+﻿using Aidn.Shared;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
 
-namespace AidnHealth.WebApp.Features.Measurement;
+namespace Aidn.WebApp.Features.Measurement;
 
 public class NewsScoreBase : ComponentBase
 {

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.WebAssembly.Authentication;
 
-namespace AidnHealth.WebApp.Features.Auth.Components;
+namespace Aidn.WebApp.Features.Auth.Components;
 
 public class RedirectToLoginBase : ComponentBase
 {

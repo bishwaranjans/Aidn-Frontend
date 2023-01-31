@@ -1,4 +1,4 @@
-﻿namespace AidnHealth.Shared;
+﻿namespace Aidn.Shared;
 
 public enum MeasurementType
 {

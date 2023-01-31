@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
 
-namespace AidnHealth.WebApp.Features.Auth.Components;
+namespace Aidn.WebApp.Features.Auth.Components;
 
 public class AuthenticationBase : ComponentBase
 {

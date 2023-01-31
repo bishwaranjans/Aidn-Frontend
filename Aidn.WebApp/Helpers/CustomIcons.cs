@@ -1,4 +1,4 @@
-﻿namespace AidnHealth.WebApp.Helpers;
+﻿namespace Aidn.WebApp.Helpers;
 
 public class CustomIcons
 {

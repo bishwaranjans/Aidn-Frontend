@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aidn.WebBffApi", "Aidn.WebB
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aidn.WebApp", "Aidn.WebApp\Aidn.WebApp.csproj", "{B3ADCE28-AACC-4CE1-9E57-7729C4D38CFB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aidn.Shared", "Shared\Aidn.Shared.csproj", "{630B4D29-F17F-4DE1-860C-67462B1D37A6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aidn.Shared", "Aidn.Shared\Aidn.Shared.csproj", "{630B4D29-F17F-4DE1-860C-67462B1D37A6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

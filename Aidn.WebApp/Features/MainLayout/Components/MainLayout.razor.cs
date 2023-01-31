@@ -2,7 +2,7 @@
 using MudBlazor;
 using MudBlazor.Utilities;
 
-namespace AidnHealth.WebApp.Features.MainLayout.Components;
+namespace Aidn.WebApp.Features.MainLayout.Components;
 
 public abstract class MainLayoutBase : LayoutComponentBase
 {

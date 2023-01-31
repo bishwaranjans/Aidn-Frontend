@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace AidnHealth.Shared;
+namespace Aidn.Shared;
 
 public class Measurements
 {  

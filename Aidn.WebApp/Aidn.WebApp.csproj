@@ -18,7 +18,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\Shared\AidnHealth.Shared.csproj" />
+	  <ProjectReference Include="..\Aidn.Shared\Aidn.Shared.csproj" />
 	</ItemGroup>
 
 </Project>

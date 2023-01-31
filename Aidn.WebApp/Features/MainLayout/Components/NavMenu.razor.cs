@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
 
-namespace AidnHealth.WebApp.Features.MainLayout.Components;
+namespace Aidn.WebApp.Features.MainLayout.Components;
 
 public class NavMenuBase : ComponentBase
 {

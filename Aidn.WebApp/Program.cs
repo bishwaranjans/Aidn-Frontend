@@ -1,4 +1,4 @@
-using AidnHealth.WebApp;
+using Aidn.WebApp;
 using Blazored.LocalStorage;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Authentication;
