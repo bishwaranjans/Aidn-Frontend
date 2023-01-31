@@ -1,13 +1,17 @@
-using Microsoft.AspNetCore.Authentication;
+using Aidn.WebBffApi.Settings;
+using Aidn.WebBffApi.Startups;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.Identity.Web;
 
 var builder = WebApplication.CreateBuilder(args);
 
+var settings = builder.Configuration.Get<AppSettings>();
+
 // Add services to the container.
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddMicrosoftIdentityWebApi(builder.Configuration.GetSection("AzureAd"));
+
+builder.Services.ConfigureClients(settings!);
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
@@ -33,8 +37,8 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
-
 
 app.MapRazorPages();
 app.MapControllers();

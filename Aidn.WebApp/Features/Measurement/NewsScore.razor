@@ -16,15 +16,21 @@
         <MudItem xs="12" sm="7">
             <MudCard>
                 <MudCardContent>
-                    <MudNumericField Label="Temperature"
-                                     @bind-Value="model.TempValue" For="@(() => model.TempValue)" />
-                    <MudNumericField Label="RR" Class="mt-3"
-                                     @bind-Value="model.RrValue" For="@(() => model.RrValue)" />
-                    <MudNumericField Label="HR" Class="mt-3"
-                                     @bind-Value="model.HrValue" For="@(() => model.HrValue)" />
+                    @foreach (var measurement in model)
+                    {
+                        <MudNumericField Immediate="true" Min="0" Variant="Variant.Outlined" Label="@Enum.GetName(typeof(MeasurementType),measurement.MeasurementType)"
+                                     @bind-Value="measurement.Value" For="@(() => measurement.Value)" />
+                    }
+
                 </MudCardContent>
                 <MudCardActions>
-                    <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto">Calculate</MudButton>
+                    <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" Disabled="isProcessing" Class="ml-auto">
+                        @if (isProcessing)
+                        {
+                            <MudProgressCircular Class="ms-n1" Size="Size.Small" Indeterminate="true" />
+                        }
+                        <MudText>Calculate</MudText>
+                    </MudButton>
                 </MudCardActions>
             </MudCard>
         </MudItem>
@@ -33,11 +39,12 @@
                 <MudText Typo="Typo.subtitle2">Summary</MudText>
                 @if (success)
                 {
-                    <MudText Color="Color.Success">Success</MudText>
+                    <MudText Color="Color.Success">@score</MudText>
                 }
                 else
                 {
                     <MudText Color="@Color.Error">
+                        @errorMessage
                         <ValidationSummary />
                     </MudText>
                 }
