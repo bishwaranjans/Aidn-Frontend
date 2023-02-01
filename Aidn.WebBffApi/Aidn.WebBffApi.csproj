@@ -19,10 +19,10 @@
     <PackageReference Include="Microsoft.Identity.Web.UI" Version="1.25.10" />
     <PackageReference Include="Refit" Version="6.3.2" />
     <PackageReference Include="Refit.HttpClientFactory" Version="6.3.2" />
+	<PackageReference Include="Aidn.Shared" Version="1.0.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Aidn.Shared\Aidn.Shared.csproj" />
     <ProjectReference Include="..\Aidn.WebApp\Aidn.WebApp.csproj" />
   </ItemGroup>
 
