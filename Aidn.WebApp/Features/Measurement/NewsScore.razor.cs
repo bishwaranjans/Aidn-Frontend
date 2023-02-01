@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.AspNetCore.Components.WebAssembly.Authentication;
 using System.Net.Http.Json;
-using static System.Net.WebRequestMethods;
 
 namespace Aidn.WebApp.Features.Measurement;
 
@@ -11,32 +10,32 @@ public class NewsScoreBase : ComponentBase
 {
     [Inject] private HttpClient HttpClient { get; set; } = default!;
 
-    protected List<Aidn.Shared.Measurement> model = new()
+    protected List<Aidn.Shared.Measurement> Measurements = new()
     {
      new Shared.Measurement() { MeasurementType = MeasurementType.Temp, Value = 0 },
      new Shared.Measurement() { MeasurementType = MeasurementType.Hr, Value = 0 },
      new Shared.Measurement() { MeasurementType = MeasurementType.Rr, Value = 0 }
     };
-    protected bool success;
-    protected string errorMessage;
-    protected string? score;
-    protected bool isProcessing;
+    protected bool Success;
+    protected string? ErrorMessage;
+    protected string? Score;
+    protected bool IsProcessing;
     protected async Task OnValidSubmit(EditContext context)
     {
-        isProcessing = true;
+        IsProcessing = true;
         try
         {
-            var response = await HttpClient.PostAsJsonAsync("NewsScore", new MeasurementsModel(model));
+            var response = await HttpClient.PostAsJsonAsync("NewsScore", new MeasurementsModel(Measurements));
 
             if (response.IsSuccessStatusCode)
             {
                 var content = await response.Content.ReadAsStringAsync();
-                success = true;
-                score = content;
+                Success = true;
+                Score = content;
             }
             else
             {
-                errorMessage = "Error occurred.Try again!";
+                ErrorMessage = "Error occurred.Try again!";
             }
         }
         catch (AccessTokenNotAvailableException exception)
@@ -45,7 +44,7 @@ public class NewsScoreBase : ComponentBase
         }
         finally
         {
-            isProcessing = false;
+            IsProcessing = false;
             StateHasChanged();
         }
     }

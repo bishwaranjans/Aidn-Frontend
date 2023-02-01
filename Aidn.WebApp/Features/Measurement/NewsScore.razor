@@ -10,13 +10,13 @@
     </MudItem>
 </MudGrid>
 
-<EditForm Model="@model" OnValidSubmit="OnValidSubmit">
+<EditForm Model="@Measurements" OnValidSubmit="OnValidSubmit">
     <DataAnnotationsValidator />
     <MudGrid>
         <MudItem xs="12" sm="7">
             <MudCard>
                 <MudCardContent>
-                    @foreach (var measurement in model)
+                    @foreach (var measurement in Measurements)
                     {
                         <MudNumericField Immediate="true" Min="0" Variant="Variant.Outlined" Label="@Enum.GetName(typeof(MeasurementType),measurement.MeasurementType)"
                                      @bind-Value="measurement.Value" For="@(() => measurement.Value)" />
@@ -24,8 +24,8 @@
 
                 </MudCardContent>
                 <MudCardActions>
-                    <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" Disabled="isProcessing" Class="ml-auto">
-                        @if (isProcessing)
+                    <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" Disabled="IsProcessing" Class="ml-auto">
+                        @if (IsProcessing)
                         {
                             <MudProgressCircular Class="ms-n1" Size="Size.Small" Indeterminate="true" />
                         }
@@ -37,14 +37,14 @@
         <MudItem xs="12" sm="5">
             <MudPaper Class="pa-4 mud-height-full">
                 <MudText Typo="Typo.subtitle2">Summary</MudText>
-                @if (success)
+                @if (Success)
                 {
-                    <MudText Color="Color.Success">@score</MudText>
+                    <MudText Color="Color.Success">@Score</MudText>
                 }
                 else
                 {
                     <MudText Color="@Color.Error">
-                        @errorMessage
+                        @ErrorMessage
                         <ValidationSummary />
                     </MudText>
                 }
