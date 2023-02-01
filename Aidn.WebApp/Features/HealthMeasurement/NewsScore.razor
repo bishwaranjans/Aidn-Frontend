@@ -18,8 +18,21 @@
                 <MudCardContent>
                     @foreach (var measurement in Measurements)
                     {
-                        <MudNumericField Immediate="true" Min="0" Variant="Variant.Outlined" Label="@Enum.GetName(typeof(MeasurementType),measurement.MeasurementType)"
+                        switch (measurement.MeasurementType)
+                        {
+                            case MeasurementType.TEMP:
+                                <MudNumericField Immediate="true" Min="Constants.MinTemperature" Max="Constants.MaxTemperature" Variant="Variant.Outlined" Label="@Enum.GetName(typeof(MeasurementType),measurement.MeasurementType)"
                                      @bind-Value="measurement.Value" For="@(() => measurement.Value)" />
+                                break;
+                            case MeasurementType.HR:
+                                <MudNumericField Immediate="true" Min="Constants.MinHr" Max="Constants.MaxHr" Variant="Variant.Outlined" Label="@Enum.GetName(typeof(MeasurementType),measurement.MeasurementType)"
+                                     @bind-Value="measurement.Value" For="@(() => measurement.Value)" />
+                                break;
+                            case MeasurementType.RR:
+                                <MudNumericField Immediate="true" Min="Constants.MinRr" Max="Constants.MaxRr" Variant="Variant.Outlined" Label="@Enum.GetName(typeof(MeasurementType),measurement.MeasurementType)"
+                                     @bind-Value="measurement.Value" For="@(() => measurement.Value)" />
+                                break;
+                        }
                     }
 
                 </MudCardContent>
@@ -41,12 +54,12 @@
                 {
                     <MudText Color="Color.Success">@Score</MudText>
                 }
-                else
+                else if (ValidationMessages is not null)
                 {
-                    <MudText Color="@Color.Error">
-                        @ErrorMessage
-                        <ValidationSummary />
-                    </MudText>
+                    @foreach (var errorMessage in ValidationMessages)
+                    {
+                        <MudText Color="@Color.Error">@errorMessage</MudText>
+                    }
                 }
             </MudPaper>
         </MudItem>

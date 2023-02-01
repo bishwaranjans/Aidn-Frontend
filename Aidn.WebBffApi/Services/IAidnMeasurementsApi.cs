@@ -1,4 +1,4 @@
-﻿using Aidn.Shared;
+﻿using Aidn.Shared.Models;
 using Refit;
 
 namespace Aidn.WebBffApi.Services;
