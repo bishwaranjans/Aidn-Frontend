@@ -11,7 +11,7 @@ public class Measurement : IValidatableObject
     public MeasurementType MeasurementType { get; set; }
 
     [Required]
-    public double Value { get; set; }
+    public int Value { get; set; }
 
     public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
     {
