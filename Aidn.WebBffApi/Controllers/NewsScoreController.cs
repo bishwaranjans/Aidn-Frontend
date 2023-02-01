@@ -3,8 +3,6 @@ using Aidn.WebBffApi.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Identity.Web.Resource;
-using System.Diagnostics;
-using static MudBlazor.CategoryTypes;
 
 namespace Aidn.WebBffApi.Controllers;
 
