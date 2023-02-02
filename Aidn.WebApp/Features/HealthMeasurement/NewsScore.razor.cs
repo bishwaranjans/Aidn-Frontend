@@ -1,18 +1,18 @@
-﻿using Aidn.Shared.Validation;
+﻿using Aidn.Shared.Helpers;
 using Aidn.Shared.Models;
+using Aidn.Shared.Validation;
+using Aidn.WebBffApi.Client;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.AspNetCore.Components.WebAssembly.Authentication;
-using System.Net.Http.Json;
-using Aidn.Shared.Helpers;
 
 namespace Aidn.WebApp.Features.HealthMeasurement;
 
 public class NewsScoreBase : ComponentBase
 {
-    [Inject] private HttpClient HttpClient { get; set; } = default!;
+    [Inject] private IAidnWebBffClient Client { get; set; } = default!;
 
-    protected List<Measurement> Measurements = new()
+    protected readonly List<Measurement> Measurements = new()
     {
      new Measurement() { MeasurementType = MeasurementType.TEMP, Value = Constants.MinTemperature },
      new Measurement() { MeasurementType = MeasurementType.HR, Value = Constants.MinHr },
@@ -24,7 +24,7 @@ public class NewsScoreBase : ComponentBase
     protected string? Score;
     protected bool IsProcessing;
 
-    protected async Task OnValidSubmit(EditContext context)
+    protected async Task OnValidSubmit(EditContext _)
     {
         IsProcessing = true;
         ValidationMessages = new();
@@ -42,13 +42,12 @@ public class NewsScoreBase : ComponentBase
             }
             else
             {
-                var response = await HttpClient.PostAsJsonAsync("NewsScore", new MeasurementsModel(Measurements));
+                var response = await Client.GetNewsScore(Measurements);
 
                 if (response.IsSuccessStatusCode)
                 {
-                    var content = await response.Content.ReadAsStringAsync();
                     Success = true;
-                    Score = content;
+                    Score = response.Content.ToString();
                 }
                 else
                 {

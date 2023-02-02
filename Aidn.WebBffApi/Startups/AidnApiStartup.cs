@@ -1,6 +1,6 @@
 ﻿using Aidn.WebBffApi.Helpers;
-using Aidn.WebBffApi.Services;
 using Aidn.WebBffApi.Settings;
+using AidnMeasurementsApi.WebApi.Client;
 using Refit;
 using TokenHandler = Aidn.WebBffApi.Auth.TokenHandler;
 
@@ -14,7 +14,7 @@ internal static class AidnApiStartup
         services.AddScoped<TokenHandler>();
 
         // Item API
-        services.AddClient<IAidnMeasurementsApi>(settings.AidnMeasurementsApiUri!);
+        services.AddClient<IAidnMeasurementsApiClient>(settings.AidnMeasurementsApiUri!);
     }
 
     private static void AddClient<T>(this IServiceCollection services, Uri uri) where T : class

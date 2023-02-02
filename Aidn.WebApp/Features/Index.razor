@@ -1,8 +1,15 @@
 ﻿@page "/"
 
-<PageTitle>Aidn Home</PageTitle>
+<PageTitle>Aidn</PageTitle>
 
 <h1>Welcome to Aidn!</h1>
-
-Aidn er et nytt journalsystem for dokumentasjon og samarbeid i primærhelsetjenesten.
+<br />
+Aidn is a new record system for documentation and collaboration in the primary healthcare service.
+<br />
+<br />
+<AuthorizeView>
+    <NotAuthorized>
+        Please <MudLink Href="/authentication/login">Log in</MudLink> with your Microsoft account to do all health related operations.
+    </NotAuthorized>
+</AuthorizeView>
 
