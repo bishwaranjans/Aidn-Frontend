@@ -1,4 +1,4 @@
-# AidnHealth 
+# AidnHealth
 
 # How to run the application
 - Make sure to run the repositopry Aidn-MeasurementsApi-WebApi project first
